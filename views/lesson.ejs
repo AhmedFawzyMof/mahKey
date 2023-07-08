@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= lesson.titles %></title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/lesson.css" />
+
+    <script>
+      const playMessage = (next) => {
+        const audio = new Audio(`/audio/<%=lang%>/(<%=param%>)EN.mp3`);
+        audio.play();
+
+        audio.onloadedmetadata = function () {
+          const duration = audio.duration * 1000;
+
+          if (next === true) {
+            setTimeout(() => playTrans(true), duration);
+          }
+        };
+      };
+      const playTrans = (next) => {
+        const audio = new Audio(`/audio/<%=lang%>/(<%=param%>)<%=code%>.mp3`);
+
+        audio.onloadedmetadata = function () {
+          const duration = audio.duration * 1000;
+
+          if (next === true) {
+            setTimeout(() => playAr(), duration);
+          }
+        };
+
+        audio.play();
+      };
+      const playAr = () => {
+        const audio = new Audio(`/audio/<%=lang%>/(<%=param%>)AR.mp3`);
+        audio.play();
+      };
+      const playConv = () => {
+        playMessage(true);
+      };
+    </script>
+  </head>
+  <body>
+    <button id="play" onclick="playConv()">Play Conversation</button>
+    <div class="theLesson">
+      <div class="message">
+        <p><%= lesson.conversation %></p>
+        <button onclick="playMessage()" class="playMessage">
+          <i class="bx bx-volume-full"></i>
+        </button>
+      </div>
+      <div class="translation">
+        <p><%= lesson.translation %></p>
+        <button onclick="playTrans()" class="playTrans">
+          <i class="bx bx-volume-full"></i>
+        </button>
+      </div>
+      <div class="arabic">
+        <p><%= lesson.arabic %></p>
+        <button onclick="playAr()" class="playMessage">
+          <i class="bx bx-volume-full"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

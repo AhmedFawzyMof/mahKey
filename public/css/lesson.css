@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap");
+
+#play {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  font-size: 15px;
+  font-family: "Poppins";
+}
+.playMessage {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  border: none;
+  background: #fff;
+}
+.playTrans {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  border: none;
+  background: #333;
+  color: #eee;
+}
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Poppins", Cairo;
+}
+.theLesson {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  padding: 7.5px;
+  gap: 15px;
+  margin-top: 20px;
+}
+.message {
+  position: relative;
+  background: #333;
+  color: #fff;
+  width: 100%;
+  height: auto;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  border-radius: 15px 15px 15px 0;
+  box-shadow: 2px 3px 5px 3px #33333356;
+  padding: 10px;
+}
+
+.translation {
+  position: relative;
+  background: #eee;
+  color: #333;
+  width: 100%;
+  height: auto;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  border-radius: 15px 15px 0 15px;
+  box-shadow: -2px 3px 5px 3px #33333356;
+  padding: 10px;
+}
+
+.translation p {
+  margin-bottom: 40px;
+}
+
+.message p {
+  margin-bottom: 40px;
+}
+
+.arabic {
+  position: relative;
+  background: #168eff;
+  color: #fff;
+  width: 100%;
+  height: auto;
+  grid-column: 1/2;
+  grid-row: 3/4;
+  border-radius: 15px 15px 15px 0;
+  box-shadow: 2px 3px 5px 3px #33333356;
+  padding: 10px;
+}
+
+.arabic p {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 700px) {
+  .theLesson {
+    grid-template-columns: 1fr;
+  }
+  .translation {
+    grid-column: 1/2;
+  }
+}
