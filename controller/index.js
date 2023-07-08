@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const German = JSON.parse(fs.readFileSync("data/German.json").toString());
 const French = JSON.parse(fs.readFileSync("data/French.json").toString());
-const Russian = JSON.parse(fs.readFileSync("data/Russian.json").toString());
+const Russian = JSON.parse(fs.readFileSync("data/Russian1.json").toString());
 
 const controller = {
   getLessons: (req, res) => {
@@ -28,7 +28,7 @@ const controller = {
     res.render("lessons", { titles, lang });
   },
   getLesson: (req, res) => {
-    const lang = req.params.lang;
+    let lang = req.params.lang;
     const param = req.params.index;
     let code = "";
     const Thelesson = {};
@@ -51,6 +51,7 @@ const controller = {
     }
     if (lang === "Russian") {
       code = "RU";
+      lang = "Russian1";
       Russian.forEach((lesson, index) => {
         if (index === JSON.parse(param)) {
           return Object.assign(Thelesson, lesson);
